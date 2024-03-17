@@ -74,11 +74,12 @@ dependencies {
     //hilt dagger
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
-    implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.androidx.hilt.compiler)
 
     //viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
 
     //retrofit
     implementation(libs.retrofit)

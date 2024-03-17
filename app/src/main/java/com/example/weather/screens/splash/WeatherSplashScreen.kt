@@ -1,4 +1,4 @@
-package com.example.weather.screens
+package com.example.weather.screens.splash
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
@@ -25,6 +25,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.weather.R
+import com.example.weather.navigation.WeatherScreens
+import kotlinx.coroutines.delay
 
 @Composable
 fun WeatherSplashScreen(navController: NavController){
@@ -36,16 +38,16 @@ fun WeatherSplashScreen(navController: NavController){
     LaunchedEffect(key1 = true, block = {
         scale.animateTo(targetValue = 0.9f,
             animationSpec = tween(//what kind of animation.
-                durationMillis = 800,//duration of animation(in ms).
+                durationMillis = 1000,//duration of animation(in ms).
                 easing = {//what type of animation
                     OvershootInterpolator(8f)
                         .getInterpolation(it)
                 }))
+
+        delay(2000L)//wait 2 seconds after the animation and then it will move to main screen
+        navController.navigate(WeatherScreens.MainScreen.name)
     })
-    
-    
-    
-    
+
     
     Surface(modifier = Modifier
         .padding(15.dp)
